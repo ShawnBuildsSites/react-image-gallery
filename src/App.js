@@ -9,49 +9,49 @@ function App() {
     {
       id: 1,
       src: 'https://via.placeholder.com/300?text=Nature1',
-      category: ['nature'],
+      categories: ['nature'],
       title: 'Beautiful Mountain',
       description: 'A scenic mountain view.'
     }, {
       id: 2,
       src: 'https://via.placeholder.com/300?text=Animals1',
-      category: ['animals'],
+      categories: ['animals'],
       title: 'Cute Dog',
       description: 'A cute puppy playing.'
     }, {
       id: 3,
       src: 'https://via.placeholder.com/300?text=Nature2',
-      category: ['nature'],
+      categories: ['nature'],
       title: 'Forest Path',
       description: 'A peaceful forest trail.'
     }, {
       id: 4,
       src: 'https://via.placeholder.com/300?text=Animals2',
-      category: ['animals'],
+      categories: ['animals'],
       title: 'Funny Cat',
       description: 'A cat wearing glasses'
     }, {
       id: 5,
       src: 'https://via.placeholder.com/300?text=Tech1',
-      category: ['tech'],
+      categories: ['tech'],
       title: 'Laptop',
       description: 'A sleek modern laptop.'
     }, {
       id: 6,
       src: 'https://via.placeholder.com/300?text=Tech2',
-      category: ['tech'],
+      categories: ['tech'],
       title: 'Smartphone',
       description: 'The latest smartphone model.'
     }, {
       id: 7,
       src: 'https://via.placeholder.com/300?text=Nature+Tech',
-      category: ['nature', 'tech'],
+      categories: ['nature', 'tech'],
       title: 'Wood-panel CPU',
       description: 'Merging nature and tech.'
     }, {
       id: 8,
       src: 'https://via.placeholder.com/300?text=Animals+Tech',
-      category: ['animals', 'tech'],
+      categories: ['animals', 'tech'],
       title: 'Monkey',
       description: 'Silly monkey hanging from tree.'
     }
@@ -70,7 +70,7 @@ function App() {
   //const filteredImages = filter === 'all' ? images : images.filter(image => image.category === filter);
   const filteredImages = filters.length === 0
     ? images
-    : images.filter((image) => filters.every((filter) => image.category.includes(filter)));
+    : images.filter((image) => filters.every((filter) => image.categories.includes(filter)));
 
   return (
     <div className='App'>
@@ -81,7 +81,9 @@ function App() {
         <button onClick={() => toggleFilter('animals')} className={filters.includes('animals') ? 'active' : ''}>Animals</button>
         <button onClick={() => toggleFilter('tech')} className={filters.includes('tech') ? 'active' : ''}>Tech</button>
       </div>
-      <ImageGallery images={filteredImages} />
+      {filteredImages.length === 0 ? (
+        <p style={{ color: 'red' }}><em>No images found for the selected categories.</em></p>
+      ) : (<ImageGallery images={filteredImages} />)}
     </div>
   );
 }
