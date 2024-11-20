@@ -3,6 +3,7 @@
   padding: 20px;
   background-color: #2f2f2f;
   color: #ddd;
+  min-height: 100vh;
 }
 
 .filters {
@@ -26,20 +27,21 @@
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
   justify-items: center;
 }
 
 .image-card {
   text-align: center;
-  max-width: 300px;
+  max-width: 200px;
 }
 
 .image-card img {
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+  cursor: pointer;
 }
 
 .categories {
@@ -52,21 +54,57 @@
 
 .category-pill {
   padding: 5px 12px;
-  background-color: #f1f1f1;
-  color: #555;
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #f1f1f1;
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
-  transition: background-color .3s, color .3s;
+  transition: all .3s, color .3s;
   cursor: default;
 }
 
 .category-pill:hover {
-  background-color: #4caf50;
-  color: white;
+  background-color: #428645;
 }
 
-p {
-  font-size: 18px;
-  margin-top: 20px;
+.popover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popover-content {
+  background-color: rgba(255, 255, 255, .5);
+  padding: 25px 50px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.popover-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, .7);
+}
+
+.close-button {
+  position: absolute;
+  font-size: 1.25em;
+  font-weight: bold;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: .25em .5em;
+  cursor: pointer;
 }

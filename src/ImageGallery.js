@@ -1,11 +1,15 @@
 import React from "react";
 import ImageCard from './ImageCard';
 
-const ImageGallery = ({ images }) => {
+const ImageGallery = ({ images, onImageClick }) => {
   return (
     <div className="gallery">
       {images.map((image, i) => (
-        <ImageCard key={i} src={image.src} title={image.title} categories={image.categories} />
+        <ImageCard
+          key={i}
+          image={image}
+          onImageClick={onImageClick}
+        />
       ))}
     </div>
   );

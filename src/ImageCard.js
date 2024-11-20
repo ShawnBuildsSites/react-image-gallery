@@ -1,17 +1,17 @@
 import React from "react";
 
-const ImageCard = ({ src, title, categories }) => {
+const ImageCard = ({ image, onImageClick }) => {
   return (
     <div className="image-card">
-      <img src={src} alt={title} />
+      <img src={image.src} alt={image.title} onClick={() => onImageClick(image)} />
+      <p><strong>{image.title}</strong></p>
       <div className="categories">
-        {categories.length > 0 ? (
-          categories.map((category, i) => (
+        {image.categories.length > 0 ? (
+          image.categories.map((category, i) => (
             <span key={i} className="category-pill">{category}</span>
           ))
         ) : (<span>Add a category</span>)}
       </div>
-      <p><strong>{title}</strong></p>
     </div>
   );
 }
