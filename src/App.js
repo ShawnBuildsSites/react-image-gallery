@@ -3,13 +3,24 @@ import './App.css';
 import ImageGallery from './ImageGallery';
 import data from './images.json';
 
+const shuffleArray = (array) => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+}
 
 function App() {
   const [filters, setFilters] = useState([]);
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  useEffect(() => { setImages(data); }, []);
+  useEffect(() => {
+    const shuffledData = shuffleArray(data);
+    setImages(shuffledData);
+  }, []);
 
   const toggleFilter = (category) => {
     setFilters((prevFilters) => {
