@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageCard = ({ src, title, description, categories }) => {
+const ImageCard = ({ src, title, categories }) => {
   return (
     <div className="image-card">
       <img src={src} alt={title} />
@@ -12,7 +12,6 @@ const ImageCard = ({ src, title, description, categories }) => {
         ) : (<span>Add a category</span>)}
       </div>
       <p><strong>{title}</strong></p>
-      <p>{description}</p>
     </div>
   );
 }

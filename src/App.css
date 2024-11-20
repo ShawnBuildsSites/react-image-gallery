@@ -1,6 +1,8 @@
 .App {
   text-align: center;
   padding: 20px;
+  background-color: #2f2f2f;
+  color: #ddd;
 }
 
 .filters {
@@ -66,6 +68,5 @@
 
 p {
   font-size: 18px;
-  color: #888;
   margin-top: 20px;
 }
