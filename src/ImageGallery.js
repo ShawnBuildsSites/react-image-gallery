@@ -1,7 +1,7 @@
 import React from "react";
 import ImageCard from './ImageCard';
 
-const ImageGallery = ({ images, onImageClick }) => {
+const ImageGallery = ({ images, onImageClick, toggleFilter }) => {
   return (
     <div className="gallery">
       {images.map((image, i) => (
@@ -9,6 +9,7 @@ const ImageGallery = ({ images, onImageClick }) => {
           key={i}
           image={image}
           onImageClick={onImageClick}
+          toggleFilter={toggleFilter}
         />
       ))}
     </div>

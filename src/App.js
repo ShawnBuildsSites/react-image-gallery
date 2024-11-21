@@ -39,28 +39,34 @@ function App() {
     : images.filter((image) => filters.every((filter) => image.categories.includes(filter)));
 
   const openPopover = (image) => { setSelectedImage(image); }
-  const closePopover = (image) => { setSelectedImage(null); }
+  const closePopover = () => { setSelectedImage(null); }
 
   return (
     <div className='App'>
       <h1>Image Gallery</h1>
-      <div className='filters'>
-        <p>Select categories to filter</p>
+      <p>Select categories to filter</p>
+      <div className='categories'>
         {uniqueCategories.map((category) => (
           <button
             key={category}
             onClick={() => toggleFilter(category)}
-            className={filters.includes(category) ? 'active' : ''}
+            className={`category-pill ${filters.includes(category) ? 'active' : ''}`}
           >{category}</button>
         ))}
       </div>
 
       {filteredImages.length === 0 ? (
         <p style={{ color: 'red' }}><em>No images found for the selected categories.</em></p>
-      ) : (<ImageGallery images={filteredImages} onImageClick={openPopover} />)}
+      ) : (
+        <ImageGallery
+          images={filteredImages}
+          onImageClick={openPopover}
+          toggleFilter={toggleFilter}
+        />
+      )}
 
       {selectedImage && (
-        <div className='popover' onClick={closePopover}>
+        <div className={`popover ${selectedImage ? 'show' : ''}`} onClick={closePopover}>
           <div className='popover-content' onClick={(e) => e.stopPropagation()}>
             <img src={selectedImage.src} alt={selectedImage.title} />
             <button className='close-button' onClick={closePopover}>&times;</button>
