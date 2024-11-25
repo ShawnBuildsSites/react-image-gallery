@@ -5,9 +5,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #2f2f2f;
+  color: #ddd;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.full-w-btn {
+  width: 100%;
+  min-height: 35px;
+  background-color: #2f2f2f;
+  color: #ddd;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.full-w-btn:hover {
+  background-color: #456d80;
 }
