@@ -13,7 +13,7 @@ const shuffleArray = (array) => {
 }
 
 function ModelsGallery() {
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState(['Non Nude']);
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
