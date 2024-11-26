@@ -102,7 +102,7 @@ function Slideshow() {
       <div>
         <img
           className={`fade ${fade ? 'fade-enter-active' : 'fade-enter'}`}
-          src={images[currentIndex].src}
+          src={`${process.env.PUBLIC_URL}${images[currentIndex].src}`}
           alt={images[currentIndex].title}
         />
       </div>

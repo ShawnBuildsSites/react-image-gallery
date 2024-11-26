@@ -3,7 +3,7 @@ import React from "react";
 const ImageCard = ({ image, onImageClick, toggleFilter }) => {
   return (
     <div className="image-card">
-      <img src={image.src} alt={image.title} onClick={() => onImageClick(image)} />
+      <img src={`${process.env.PUBLIC_URL}${image.src}`} alt={image.title} onClick={() => onImageClick(image)} />
       <p><strong>{image.title}</strong></p>
       <div className="categories">
         {image.categories.length > 0 ? (
