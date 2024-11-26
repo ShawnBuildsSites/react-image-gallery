@@ -1,19 +1,22 @@
 import React, { useState } from "react";
+import AppSwitcher from "./AppSwitcher";
 import ArtGallery from "./ArtGallery";
 import ModelsGallery from "./ModelsGallery";
+import Slideshow from "./Slideshow";
+
+const apps = {
+  ArtGallery: <ArtGallery />,
+  ModelsGallery: <ModelsGallery />,
+  Slideshow: <Slideshow />
+};
 
 function Splash() {
-  const [currentApp, setCurrentApp] = useState('ArtGallery');
-  const switchApp = () => {
-    setCurrentApp((prevApp) => (prevApp === 'ArtGallery' ? 'ModelsGallery' : 'ArtGallery'));
-  }
+  const [currentApp, setCurrentApp] = useState('ModelsGallery');
 
   return (
     <div>
-      <button className="full-w-btn" onClick={switchApp}>
-        Switch to {currentApp === 'ArtGallery' ? 'ModelsGallery' : 'ArtGallery'}
-      </button>
-      {currentApp === 'ArtGallery' ? <ArtGallery /> : <ModelsGallery />}
+      <AppSwitcher currentApp={currentApp} onAppChange={setCurrentApp} />
+      {apps[currentApp]}
     </div>
   )
 }

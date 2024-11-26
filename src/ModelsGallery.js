@@ -43,7 +43,7 @@ function ModelsGallery() {
 
   return (
     <div className='App'>
-      <h1>Image Gallery</h1>
+      <h1>Models Gallery</h1>
       <p>Select categories to filter</p>
       <div className='categories'>
         {uniqueCategories.map((category) => (

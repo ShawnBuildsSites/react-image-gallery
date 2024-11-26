@@ -14,7 +14,8 @@ code {
     monospace;
 }
 
-.full-w-btn {
+.full-w-btn,
+.half-w-btn {
   width: 100%;
   min-height: 35px;
   background-color: #2f2f2f;
@@ -24,6 +25,11 @@ code {
   transition: background-color .2s ease;
 }
 
-.full-w-btn:hover {
+.full-w-btn:hover,
+.half-w-btn:hover {
   background-color: #456d80;
+}
+
+.half-w-btn {
+  width: 50%;
 }
