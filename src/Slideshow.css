@@ -1,0 +1,50 @@
+.fade {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.slideBtn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #ddd;
+}
+
+.countdown {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ddd;
+  margin-top: 20px;
+}
+
+.textInput {
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 1.15em;
+  border-radius: 5px;
+  width: 3.5em;
+}

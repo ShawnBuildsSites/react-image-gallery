@@ -1,4 +1,5 @@
 import React from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function AppSwitcher({ currentApp, onAppChange }) {
   const apps = ['ArtGallery', 'ModelsGallery', 'Slideshow'];
@@ -26,10 +27,10 @@ function AppSwitcher({ currentApp, onAppChange }) {
   return (
     <div>
       <button className="half-w-btn" onClick={() => switchApp('previous')}>
-        &larr; {getPreviousApp()}
+        <FaChevronLeft /> {getPreviousApp()}
       </button>
       <button className="half-w-btn" onClick={() => switchApp('next')}>
-        {getNextApp()} &rarr;
+        {getNextApp()} <FaChevronRight />
       </button>
     </div>
   )
