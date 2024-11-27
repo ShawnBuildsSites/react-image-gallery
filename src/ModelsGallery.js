@@ -68,7 +68,7 @@ function ModelsGallery() {
       {selectedImage && (
         <div className={`popover ${selectedImage ? 'show' : ''}`} onClick={closePopover}>
           <div className='popover-content' onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage.src} alt={selectedImage.title} />
+            <img src={`${process.env.PUBLIC_URL}${selectedImage.src}`} alt={selectedImage.title} />
             <button className='close-button' onClick={closePopover}>&times;</button>
           </div>
         </div>
