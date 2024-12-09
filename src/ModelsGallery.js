@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 import ImageGallery from './ImageGallery';
 import data from './models.json';
+import AddImageForm from "./AddImageForm";
 
 const shuffleArray = (array) => {
   const shuffledArray = [...array];
@@ -44,6 +45,7 @@ function ModelsGallery() {
   return (
     <div className='App'>
       <h1>Models Gallery</h1>
+      <button popovertarget="addImagePopover">Add New Image</button>
       <p>Select categories to filter</p>
       <div className='categories'>
         {uniqueCategories.map((category) => (
@@ -73,6 +75,10 @@ function ModelsGallery() {
           </div>
         </div>
       )}
+
+      <div popover id="addImagePopover">
+        <AddImageForm categories={uniqueCategories} gallery="models" />
+      </div>
     </div>
   );
 }

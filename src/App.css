@@ -11,7 +11,8 @@
   justify-items: center;
 }
 
-.image-card {
+.image-card,
+.preview-image {
   text-align: center;
   max-width: 200px;
 }
@@ -97,4 +98,25 @@
   border-radius: 50%;
   padding: .25em .5em;
   cursor: pointer;
+}
+
+.addForm {
+  margin: 50px;
+}
+
+.addForm h2 {
+  text-align: center;
+}
+
+.addForm input {
+  width: 80%;
+  margin: 15px auto;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.addForm button {
+  background-color: aquamarine;
+  color: darkslategrey;
+  border: darkslategrey;
 }
