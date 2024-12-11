@@ -35,7 +35,7 @@ const AddImageForm = ({ categories, gallery }) => {
   }
 
   return (
-    <div className="addForm">
+    <div popover id="addImagePopover" className="addForm">
       <h2>Add new image to {gallery} gallery</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" value={gallery} name="gallery" readOnly />
