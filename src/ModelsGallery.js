@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 import ImageGallery from './ImageGallery';
 import data from './models.json';
-import AddImageForm from "./AddImageForm";
+//import AddImageForm from "./AddImageForm";
 
 const shuffleArray = (array) => {
   const shuffledArray = [...array];
