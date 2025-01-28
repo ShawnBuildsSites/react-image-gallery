@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import './App.css';
 import './Slideshow.css';
 import data from './models.json';
@@ -30,6 +30,15 @@ function Slideshow() {
     setImages(shuffledData);
   }, []);
 
+  const nextSlide = useCallback(() => {
+    setFade(false);
+    setCountdown(userCountdown);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setFade(true);
+    }, fadeTime);
+  }, [userCountdown, images.length, fadeTime]);
+
   useEffect(() => {
     if (images.length > 0 && !isPaused) {
       const interval = setInterval(() => {
@@ -48,25 +57,16 @@ function Slideshow() {
       }, 1000); //decrease every second
       return () => clearInterval(interval);
     }
-  }, [images, currentIndex, isPaused, userCountdown]);
+  }, [images, currentIndex, isPaused, userCountdown, nextSlide]);
 
-  const nextSlide = () => {
-    setFade(false);
-    setCountdown(userCountdown);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      setFade(true);
-    }, fadeTime);
-  }
-
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setFade(false);
     setCountdown(userCountdown);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
       setFade(true);
     }, fadeTime);
-  }
+  }, [userCountdown, images.length, fadeTime]);
 
   const handleCountdownChange = (e) => {
     const newCountdown = Math.max(1, parseInt(e.target.value, 10));
