@@ -16,10 +16,10 @@ const shuffleArray = (array) => {
 function Slideshow() {
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(false);
+  /* const [fade, setFade] = useState(false); */
 
-  const timer = 5; //time in seconds
-  const fadeTime = 1000; //time in ms
+  const timer = 10; //time in seconds
+  /* const fadeTime = 1000; //time in ms */
 
   const [countdown, setCountdown] = useState(timer);
   const [isPaused, setIsPaused] = useState(false);
@@ -30,14 +30,18 @@ function Slideshow() {
     setImages(shuffledData);
   }, []);
 
-  const nextSlide = useCallback(() => {
+  /* const nextSlide = useCallback(() => {
     setFade(false);
     setCountdown(userCountdown);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setFade(true);
     }, fadeTime);
-  }, [userCountdown, images.length, fadeTime]);
+  }, [userCountdown, images.length, fadeTime]); */
+  const nextSlide = useCallback(() => {
+    setCountdown(userCountdown);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  }, [userCountdown, images.length]);
 
   useEffect(() => {
     if (images.length > 0 && !isPaused) {
@@ -48,7 +52,7 @@ function Slideshow() {
             setTimeout(() => {
               nextSlide();
               setIsPaused(false);
-            }, (fadeTime * 2));
+            }, /* (fadeTime * 2) */ 1000);
             return userCountdown;
           } else {
             return prevCountdown - 1;
@@ -59,14 +63,18 @@ function Slideshow() {
     }
   }, [images, currentIndex, isPaused, userCountdown, nextSlide]);
 
-  const prevSlide = useCallback(() => {
+  /* const prevSlide = useCallback(() => {
     setFade(false);
     setCountdown(userCountdown);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
       setFade(true);
     }, fadeTime);
-  }, [userCountdown, images.length, fadeTime]);
+  }, [userCountdown, images.length, fadeTime]); */
+  const prevSlide = useCallback(() => {
+    setCountdown(userCountdown);
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  }, [userCountdown, images.length]);
 
   const handleCountdownChange = (e) => {
     const newCountdown = Math.max(1, parseInt(e.target.value, 10));
@@ -101,7 +109,7 @@ function Slideshow() {
       </div>
       <div>
         <img
-          className={`fade ${fade ? 'fade-enter-active' : 'fade-enter'}`}
+          /* className={`fade ${fade ? 'fade-enter-active' : 'fade-enter'}`} */
           src={`${process.env.PUBLIC_URL}${images[currentIndex].src}`}
           alt={images[currentIndex].title}
         />
