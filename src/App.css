@@ -73,7 +73,7 @@
 }
 
 .popover-content {
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(0, 0, 0, .7);
   padding: 25px 50px;
   border-radius: 8px;
   position: relative;
@@ -92,31 +92,10 @@
   font-weight: bold;
   top: 10px;
   right: 10px;
-  background-color: red;
+  background-color: #f96e46;
   color: white;
   border: none;
   border-radius: 50%;
   padding: .25em .5em;
   cursor: pointer;
-}
-
-.addForm {
-  margin: 50px;
-}
-
-.addForm h2 {
-  text-align: center;
-}
-
-.addForm input {
-  width: 80%;
-  margin: 15px auto;
-  padding: 8px;
-  border-radius: 5px;
-}
-
-.addForm button {
-  background-color: aquamarine;
-  color: darkslategrey;
-  border: darkslategrey;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import './App.css';
 import './Slideshow.css';
-import data from './models.json';
+import data from './images.json';
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 const shuffleArray = (array) => {
@@ -113,6 +113,7 @@ function Slideshow() {
           src={`${process.env.PUBLIC_URL}${images[currentIndex].src}`}
           alt={images[currentIndex].title}
         />
+        <p>{images[currentIndex].title}</p>
       </div>
     </div>
   );

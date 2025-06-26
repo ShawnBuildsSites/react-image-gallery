@@ -69,6 +69,7 @@ function ArtGallery() {
         <div className={`popover ${selectedImage ? 'show' : ''}`} onClick={closePopover}>
           <div className='popover-content' onClick={(e) => e.stopPropagation()}>
             <img src={`${process.env.PUBLIC_URL}${selectedImage.src}`} alt={selectedImage.title} />
+            <p>{selectedImage.title}</p>
             <button className='close-button' onClick={closePopover}>&times;</button>
           </div>
         </div>
